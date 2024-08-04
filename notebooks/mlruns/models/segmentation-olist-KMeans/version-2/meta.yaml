@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1722785142676
+current_stage: None
+description: null
+last_updated_timestamp: 1722785142676
+name: segmentation-olist-KMeans
+run_id: af82c1e12b2644a08b68f015035f5bf6
+run_link: null
+source: file:///Users/massamba/Desktop/MLOps/projet_mlops/notebooks/mlruns/959814468746220505/af82c1e12b2644a08b68f015035f5bf6/artifacts/KMeans
+status: READY
+status_message: null
+storage_location: file:///Users/massamba/Desktop/MLOps/projet_mlops/notebooks/mlruns/959814468746220505/af82c1e12b2644a08b68f015035f5bf6/artifacts/KMeans
+user_id: null
+version: 2

@@ -1,0 +1,26 @@
+artifact_path: DBSCAN
+flavors:
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.3.2
+mlflow_version: 2.14.1
+model_size_bytes: 6782241
+model_uuid: 537d970e669c4f73bcaa3e109be7ac4a
+run_id: fa8833638f1e4f3b9d0c1c0537a10c3d
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "total_spent", "required": true}, {"type":
+    "long", "name": "frequency", "required": true}, {"type": "double", "name": "avg_installments",
+    "required": true}, {"type": "double", "name": "total_items", "required": true},
+    {"type": "double", "name": "payment_price_ratio", "required": true}, {"type":
+    "long", "name": "recency", "required": true}, {"type": "double", "name": "avg_fractional_payment_ratio",
+    "required": true}, {"type": "double", "name": "total_freight_value", "required":
+    true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+  params: null
+utc_time_created: '2024-08-04 15:24:16.760401'

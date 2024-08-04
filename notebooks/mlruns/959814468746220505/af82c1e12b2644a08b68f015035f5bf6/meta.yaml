@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/massamba/Desktop/MLOps/projet_mlops/notebooks/mlruns/959814468746220505/af82c1e12b2644a08b68f015035f5bf6/artifacts
+end_time: 1722785142685
+entry_point_name: ''
+experiment_id: '959814468746220505'
+lifecycle_stage: active
+run_id: af82c1e12b2644a08b68f015035f5bf6
+run_name: 20240804_150806-RFM-Segmentation-KMeans
+run_uuid: af82c1e12b2644a08b68f015035f5bf6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722785058830
+status: 3
+tags: []
+user_id: massamba

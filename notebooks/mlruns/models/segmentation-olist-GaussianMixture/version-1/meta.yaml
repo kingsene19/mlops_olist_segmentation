@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1722781380318
+current_stage: None
+description: null
+last_updated_timestamp: 1722781380318
+name: segmentation-olist-GaussianMixture
+run_id: c8ed4ac05e63445fbbdff88a4e64b980
+run_link: null
+source: file:///Users/massamba/Desktop/MLOps/projet_mlops/notebooks/mlruns/959814468746220505/c8ed4ac05e63445fbbdff88a4e64b980/artifacts/GaussianMixture
+status: READY
+status_message: null
+storage_location: file:///Users/massamba/Desktop/MLOps/projet_mlops/notebooks/mlruns/959814468746220505/c8ed4ac05e63445fbbdff88a4e64b980/artifacts/GaussianMixture
+user_id: null
+version: 1

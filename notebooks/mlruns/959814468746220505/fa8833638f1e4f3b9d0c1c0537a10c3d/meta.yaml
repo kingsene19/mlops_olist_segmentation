@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/massamba/Desktop/MLOps/projet_mlops/notebooks/mlruns/959814468746220505/fa8833638f1e4f3b9d0c1c0537a10c3d/artifacts
+end_time: 1722785058827
+entry_point_name: ''
+experiment_id: '959814468746220505'
+lifecycle_stage: active
+run_id: fa8833638f1e4f3b9d0c1c0537a10c3d
+run_name: 20240804_150806-RFM-Segmentation-DBSCAN
+run_uuid: fa8833638f1e4f3b9d0c1c0537a10c3d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722784949616
+status: 3
+tags: []
+user_id: massamba
