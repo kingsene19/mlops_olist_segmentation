@@ -67,7 +67,7 @@ with tab1:
                 "total_freight_value": total_freight_value,
             }
             response = requests.post(
-                "https://segmentation-olist-deployment.onrender.com/api/segment",
+                "https://olist-segmentation-api.onrender.com/api/segment",
                 json=customer_data,
             )
             if response.status_code == 200:
@@ -94,7 +94,7 @@ with tab2:
                 )
             }
             response = requests.post(
-                "https://segmentation-olist-deployment.onrender.com/segment/batch",
+                "https://olist-segmentation-api.onrender.com/segment/batch",
                 files=files,
             )
             if response.status_code == 200:
@@ -115,7 +115,7 @@ with tab3:
     if st.button("Récupérer le segment utilisateur", key="get_segment_button"):
         if customer_id:
             response = requests.get(
-                f"https://segmentation-olist-deployment.onrender.com/api/segment/{customer_id}"
+                f"https://olist-segmentation-api.onrender.com/api/segment/{customer_id}"
             )
             if response.status_code == 200:
                 result = response.json()
@@ -130,7 +130,7 @@ with tab4:
     st.header("Get Segments Information")
     if st.button("Récupérer les informations des segments"):
         response = requests.get(
-            "https://segmentation-olist-deployment.onrender.com/api/segments"
+            "https://olist-segmentation-api.onrender.com/api/segments"
         )
         if response.status_code == 200:
             result = response.json()
