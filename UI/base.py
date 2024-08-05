@@ -94,7 +94,7 @@ with tab2:
                 )
             }
             response = requests.post(
-                "https://olist-segmentation-api.onrender.com/segment/batch",
+                "https://olist-segmentation-api.onrender.com/api/segment/batch",
                 files=files,
             )
             if response.status_code == 200:

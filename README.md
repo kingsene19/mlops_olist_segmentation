@@ -1,4 +1,4 @@
-# Projet MLOPS : Segmentation des clients Olist
+# Projet MLOPS : Segmentation des clients du site E-commerceOlist
 
 Contributeurs :
 - El Hadj Dame Lo Kaba
@@ -9,29 +9,43 @@ Ce notebook traite de la segmentation des clients d'Olist, une plateforme de com
 
 Le commerce électronique est un modèle d'affaires qui permet aux entreprises ou aux particuliers d'acheter ou de vendre des biens via Internet. Les clients du commerce électronique ont des personnalités extrêmement variées, et un marché potentiel n'est généralement pas caractérisé de manière unique ou simple. Il devient donc crucial de connaître sa base de clients cible afin de s'assurer que vos communications soient à la fois efficaces (attractives, incitatives) et appropriées (non offensantes, opportunes et pertinentes). Comprendre les comportements des clients permet aux entreprises de regrouper différents clients en groupes.
 
-## Identification du problème
+## Présentation du sujet
 
-### 1. Définition du problème
-Les clients visitent les sites de commerce électronique pour atteindre un objectif. Cet objectif peut être simple ou complexe. En analysant le comportement des utilisateurs, nous pouvons déduire des stratégies communes que les utilisateurs suivent pour atteindre un objectif. Au niveau le plus granulaire, le comportement des utilisateurs se manifeste par des requêtes de recherche et des interactions.
+Olist, une entreprise brésilienne spécialisée dans la vente sur les marketplaces en ligne, souhaite optimiser ses campagnes de communication en segmentant ses clients. Cette segmentation permettra de mieux comprendre les différents profils d'utilisateurs et de cibler les campagnes de manière plus efficace. Les clients visitent les sites de commerce électronique pour atteindre un objectif. Cet objectif peut être simple ou complexe. En analysant le comportement des utilisateurs, nous pouvons déduire des stratégies communes que les utilisateurs suivent pour atteindre un objectif. En se basant sur le comportement des clients il faut fournir une segmentation actionable et compréhensible pour l'équipe marketing d'Olist.
+Les questions qui se posent deviennent donc
+Comment segmenter efficacement les clients d'Olist pour permettre une communication marketing ciblée et personnalisée ? 
+Quels sont les segments de clients les plus pertinents pour Olist, et comment peuvent-ils être identifiés à partir des données disponibles ?
+Pour ce faire nous procédons donc comme suit:
 
-Le problème est que nous n'avons pas encore calculé la valeur RFM, pour clarifier l'analyse des données, nous devons approfondir l'analyse de la valeur RFM et diviser les clients en segments.
 
-### 2. Objectifs
-À partir des jeux de données disponiblex, nous avons constaté que nous pouvons utiliser la segmentation de clients pour le développement de l'e-commerce d'Olist afin de découvrir les habitudes de chaque segment de clients. La segmentation des clients qui sera générée par ce projet pourra ensuite aider Olist à mettre en œuvre des stratégies de publicité / marketing pour chaque segment.
+### Etape 1: Analyse exploratoire des données
+Dans cette étape nous procédons à une l'analyse du jeu de données en passant par le chargement et le nettoyage des différents dataframes avant de les fusionner. Nous poursuivons ensuite avec quelques visualisations pour avoir une meilleure compréhension du jeu de données avant de passer au feauture engineering.</br>
+A la fin de cette étape nous obtenons donc notre jeu de données final qui pourra être utilisé pour les modèles
 
-L'objectif est de créer un algorithme pour le regroupement des clients afin d'aider Olist à connaître les caractéristiques des utilisateurs d'Olist. Le but principal de ce projet est d'aider à atteindre les attentes de l'algorithme à créer pour le regroupement de chaque segment d'utilisateurs à travers les objectifs suivants :
+### Etape 2: Expérimentation et choix d'un modèle final
+Suite à l'analyse des données, nous utilisons le notebook résultant afin de tester divers modèles de segmentation en prenant soin de déterminer les paramètres optimaux. Nous faison également le suivi avec des expériences MLFlow et déterminons le modèle final à utiliser sur la base d'une comparaison des performances.
 
-◉ Regrouper les clients en fonction de leur comportement afin qu'ils soient divisés en plusieurs segments:
+### Etape 3: Détermination du délai de maintenance
+A la suite des étapes précédentes, nous faisons des simulations afin de déterminer une fréquence appropriée de mise à jour du modèle final
 
-◉ Découvrir les caractéristiques déterminantes dans chaque segment de clients.
+### Etape 4: Mise en place de la pipeline CI/CD
+Nous mettons ensuite en place une pipeline CI/CD avec Github Actions en prenant soin d'automatiser les tests unitaires, l'exécution des notebooks et le déploiement de l'API créée pour servir le modèle.
 
-Avec ces deux objectifs, cela peut aider l'équipe commerciale d'Olist à trouver des stratégies de marketing / publicité basées sur le type ou les caractéristiques de chaque cluster que nous avons formé.
+### Résulats
+Une fois la pipeline exécuté à mesure que nous apportons des modifications, nous avons donc dockerisé et déployé notre API sur Render.
 
-### 3. Exploration et Modélisation des Données
-Nous effectuons une analyse sur les jeux de données en utilisant les méthodes KMeans, DBSCAN et GaussianMixture après avoir les caractéristiques reflétant le comportement pour chaque client, puis nous appliquons la segmentation des clients. Pour la comparaison, nous utilisons également les mesures de performance suivantes pour évaluer le modèle de machine learning : le score silhouette, le score de Calinski-Harabasz et le score de Davies-Bouldin. Après cela, nous déterminons la fréquence à laquelle le modèle doit être mis à jour en fonction de l'analyse temporelle de la stabilité des clusters.
+![Docker Image](https://i.ibb.co/vL2FjC1/olist-dockerhub.png)
+![Render](https://i.ibb.co/xsZh8n1/render-deploy.png)
 
-### 4. Déploiement
-Ce projet étant orienté vers les pratiques MLOps, nous intégrons ces principes dans notre projet, tels que le suivi avec MLFlow ainsi qu'un pipeline CI/CD pour automatiser les tests, les exécutions de notebooks et le déploiement du modèle. Nous veillons également à respecter les conventions PEP.
+
+L'API est disponible au niveau de l'url `https://olist-segmentation-api.onrender.com` avec une documentation à l'endpoint `/docs`
+
+![API](https://i.ibb.co/VxDmX74/api-docs.png)
+
+
+Nous avons également déployé une inteface graphique streamlit pour faciliter son utilisation à l'endpoint `https://mlopsolistsegmentation-vlbfmufaw2ros9lpkdx7nq.streamlit.app/`. 
+![UI](https://i.ibb.co/t3k1k1f/ui-1.png)
+![UI](https://i.ibb.co/1v3BcVG/ui-2.png)
 
 ## Structure du Repo
 
@@ -120,19 +134,3 @@ Une interface graphique streeamlit pour l'utilisation du modèle
 - `requirements-tests.txt`: Dépendances Python pour l'exécution des tests
 - `run_olist.sh`: Script shell pour exécuter les notebooks
 
-## Interface graphique
-
-Une fois le modèle entrainé nous mettons en place une API pour son exploitation que nous avons dockerisé et déployé sur Render à l'aide de la pipeline github actions.
-
-![Docker Image](https://i.ibb.co/vL2FjC1/olist-dockerhub.png)
-![Render](https://i.ibb.co/xsZh8n1/render-deploy.png)
-
-
-L'API est disponible au niveau de l'url `https://olist-segmentation-api.onrender.com` avec une documentation à l'endpoint `/docs`
-
-![API](https://i.ibb.co/VxDmX74/api-docs.png)
-
-
-Nous avons également déployé une inteface graphique streamlit pour faciliter son utilisation à l'endpoint `https://mlopsolistsegmentation-vlbfmufaw2ros9lpkdx7nq.streamlit.app/`. 
-![UI](https://i.ibb.co/t3k1k1f/ui-1.png)
-![UI](https://i.ibb.co/1v3BcVG/ui-2.png)
