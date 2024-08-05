@@ -9,6 +9,10 @@ Ce notebook traite de la segmentation des clients d'Olist, une plateforme de com
 
 Le commerce électronique est un modèle d'affaires qui permet aux entreprises ou aux particuliers d'acheter ou de vendre des biens via Internet. Les clients du commerce électronique ont des personnalités extrêmement variées, et un marché potentiel n'est généralement pas caractérisé de manière unique ou simple. Il devient donc crucial de connaître sa base de clients cible afin de s'assurer que vos communications soient à la fois efficaces (attractives, incitatives) et appropriées (non offensantes, opportunes et pertinentes). Comprendre les comportements des clients permet aux entreprises de regrouper différents clients en groupes.
 
+## Support de présentation
+
+Le support de présentation peut être vu en cliquant sur lien suivant: [Support de présentation](https://www.canva.com/design/DAGM_o03THg/uhs67JZoDi6ghpejnDUfMw/edit?utm_content=DAGM_o03THg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 ## Présentation du sujet
 
 Olist, une entreprise brésilienne spécialisée dans la vente sur les marketplaces en ligne, souhaite optimiser ses campagnes de communication en segmentant ses clients. Cette segmentation permettra de mieux comprendre les différents profils d'utilisateurs et de cibler les campagnes de manière plus efficace. Les clients visitent les sites de commerce électronique pour atteindre un objectif. Cet objectif peut être simple ou complexe. En analysant le comportement des utilisateurs, nous pouvons déduire des stratégies communes que les utilisateurs suivent pour atteindre un objectif. En se basant sur le comportement des clients il faut fournir une segmentation actionable et compréhensible pour l'équipe marketing d'Olist.
