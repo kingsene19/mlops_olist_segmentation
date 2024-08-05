@@ -33,7 +33,7 @@ Nous effectuons une analyse sur les jeux de données en utilisant les méthodes 
 ### 4. Déploiement
 Ce projet étant orienté vers les pratiques MLOps, nous intégrons ces principes dans notre projet, tels que le suivi avec MLFlow ainsi qu'un pipeline CI/CD pour automatiser les tests, les exécutions de notebooks et le déploiement du modèle. Nous veillons également à respecter les conventions PEP.
 
-## Structure du dépôt
+## Structure du Repo
 
 ### Structure des répertoires
 
@@ -47,6 +47,7 @@ Ce projet étant orienté vers les pratiques MLOps, nous intégrons ces principe
 - [reports](#reports)
 - [settings](#settings)
 - [src](#src)
+- [UI](#ui)
 - [tests](#tests)
 
 ### Descriptions des répertoires
@@ -110,8 +111,28 @@ Fonctions utilitaires pour les fonctionnalités principales du projet.
 Contient les fichiers de test pour le projet.
 - `test_datasets.py`: Tests pour le chargement et le traitement des jeux de données
 
+#### UI
+Une interface graphique streeamlit pour l'utilisation du modèle
+
 ### Fichiers clés dans le répertoire racine
 
 - `requirements-nr.txt`: Dépendances Python non-root
 - `requirements-tests.txt`: Dépendances Python pour l'exécution des tests
 - `run_olist.sh`: Script shell pour exécuter les notebooks
+
+## Interface graphique
+
+Une fois le modèle entrainé nous mettons en place une API pour son exploitation que nous avons dockerisé et déployé sur Render à l'aide de la pipeline github actions.
+
+![Docker Image](https://i.ibb.co/vL2FjC1/olist-dockerhub.png)
+![Render](https://i.ibb.co/xsZh8n1/render-deploy.png)
+
+
+L'API est disponible au niveau de l'url `https://olist-segmentation-api.onrender.com` avec une documentation à l'endpoint `/docs`
+
+![API](https://i.ibb.co/VxDmX74/api-docs.png)
+
+
+Nous avons également déployé une inteface graphique streamlit pour faciliter son utilisation à l'endpoint `https://mlopsolistsegmentation-vlbfmufaw2ros9lpkdx7nq.streamlit.app/`. 
+![UI](https://i.ibb.co/t3k1k1f/ui-1.png)
+![UI](https://i.ibb.co/1v3BcVG/ui-2.png)
