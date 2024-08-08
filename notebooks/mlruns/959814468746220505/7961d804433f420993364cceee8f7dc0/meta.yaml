@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/massamba/Desktop/MLOps/projet_mlops/notebooks/mlruns/959814468746220505/7961d804433f420993364cceee8f7dc0/artifacts
+end_time: 1723116427949
+entry_point_name: ''
+experiment_id: '959814468746220505'
+lifecycle_stage: active
+run_id: 7961d804433f420993364cceee8f7dc0
+run_name: 20240808_110802-RFM-Segmentation-GaussianMixture
+run_uuid: 7961d804433f420993364cceee8f7dc0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723116334305
+status: 3
+tags: []
+user_id: massamba
