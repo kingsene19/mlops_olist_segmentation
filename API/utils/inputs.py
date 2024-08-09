@@ -5,7 +5,7 @@ import pandas as pd
 
 
 class Customer(BaseModel):
-    customer_id: str
+    customer_unique_id: str
     total_spent: float
     frequency: float
     avg_installments: float

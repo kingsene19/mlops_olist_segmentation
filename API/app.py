@@ -41,7 +41,7 @@ def predict_customer_segment(customer: Customer) -> JSONResponse:
         result = model.predict(customer.to_df())[0]
         # Renvoyer le resultat
         return JSONResponse(
-            content={"customer_id": customer.customer_id, "segment": STRATEGIES[result]}
+            content={"customer_unique_id": customer.customer_unique_id, "segment": STRATEGIES[result]}
         )
     except HTTPException as e:
         raise e
@@ -74,10 +74,10 @@ def predict_customer_segment_batch(file: UploadFile = File(...)) -> JSONResponse
         results = []
 
         for _, row in df.iterrows():
-            entry = row.drop("customer_id")
+            entry = row.drop("customer_unique_id")
             result = model.predict(entry.to_frame().T)[0]
             results.append(
-                {"customer_id": row["customer_id"], "segment": STRATEGIES[result]}
+                {"customer_unique_id": row["customer_unique_id"], "segment": STRATEGIES[result]}
             )
         return JSONResponse(content=results)
     except HTTPException as e:
@@ -86,21 +86,21 @@ def predict_customer_segment_batch(file: UploadFile = File(...)) -> JSONResponse
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.get("/api/segment/{customer_id}")
-def retrieve_customer_segment(customer_id: str) -> JSONResponse:
+@app.get("/api/segment/{customer_unique_id}")
+def retrieve_customer_segment(customer_unique_id: str) -> JSONResponse:
     """Récupérer le segment prédit pour un client par son id
 
     Args:
-        customer_id (str) : ID du client
+        customer_unique_id (str) : ID du client
 
     Returns:
         JSONResponse : Réponse contenant une list d'id du client et son segment prédit
     """
     try:
-        row = data[data["customer_id"] == customer_id]
+        row = data[data["customer_unique_id"] == customer_unique_id]
         return JSONResponse(
             content={
-                "customer_id": customer_id,
+                "customer_unique_id": customer_unique_id,
                 "segment": STRATEGIES[row.iloc[0].segments],
             }
         )
@@ -122,8 +122,8 @@ def retrieve_all_segments() -> JSONResponse:
         segments = STRATEGIES.keys()
         for segment in segments:
             temp = data[data["segments"] == segment]
-            customer_ids = temp["customer_id"].tolist()
-            results.append({"Segment": STRATEGIES[segment], "Customers": customer_ids})
+            customer_unique_ids = temp["customer_unique_id"].tolist()
+            results.append({"Segment": STRATEGIES[segment], "Customers": customer_unique_ids})
         return JSONResponse(content=results)
     except HTTPException as e:
         raise e
