@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1723220410796
+current_stage: None
+description: null
+last_updated_timestamp: 1723220410796
+name: segmentation-olist-DBSCAN
+run_id: ebd8f7a115da4579ae70b3c02161678a
+run_link: null
+source: file:///Users/massamba/Desktop/MLOps/projet_mlops/notebooks/mlruns/959814468746220505/ebd8f7a115da4579ae70b3c02161678a/artifacts/DBSCAN
+status: READY
+status_message: null
+storage_location: file:///Users/massamba/Desktop/MLOps/projet_mlops/notebooks/mlruns/959814468746220505/ebd8f7a115da4579ae70b3c02161678a/artifacts/DBSCAN
+user_id: null
+version: 5

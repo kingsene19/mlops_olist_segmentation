@@ -2,57 +2,49 @@
 
 STRATEGIES = {
     0: {
-        "title": "Clients à haute valeur avec achats fréquents et récents",
-        "description": "Ces clients ont la dépense totale la plus élevée, la fréquence d'achat la plus élevée, et des achats très récents. Ils achètent de nombreux articles et ont une valeur de fret élevée.",
+        "title": "Clients occasionnels avec faible dépense moyenne",
+        "description": "Ces clients ont une dépense totale relativement faible, une fréquence d'achat basse, et un faible nombre d'articles achetés en moyenne. Leurs achats sont peu récents, et leur valeur de fret est également basse.",
         "actions": {
-            "Programme VIP": "Créer un programme exclusif avec des avantages premium pour récompenser et retenir ces clients de grande valeur",
+            "Réengagement": "Lancer des campagnes de réactivation ciblées, comme des offres promotionnelles ou des remises spéciales pour encourager ces clients à revenir",
+            "Communication personnalisée": "Envoyer des emails ou des notifications pour rappeler à ces clients l'existence de la marque et proposer des produits qui correspondent à leurs précédents achats",
+            "Programmes de fidélité": "Introduire un programme de fidélité qui incite ces clients à augmenter leur fréquence d'achat et leur panier moyen",
+        },
+    },
+    1: {
+        "title": "Clients achetant principalement en plusieurs fois avec faible fréquence",
+        "description": "Ces clients dépensent un montant modéré mais leur fréquence d'achat est relativement faible. Ils optent souvent pour des paiements en plusieurs fois et achètent peu d'articles. Leur activité est assez récente et leur valeur de fret est modeste.",
+        "actions": {
+            "Offres sur les paiements fractionnés": "Promouvoir des options de paiement fractionné avec des conditions avantageuses pour attirer ces clients",
+            "Ciblage de produits complémentaires": "Proposer des produits complémentaires ou accessoires pour augmenter leur panier moyen à chaque achat",
+            "Campagnes de relance": "Envoyer des rappels et des offres limitées dans le temps pour les inciter à acheter plus fréquemment",
+        },
+    },
+    2: {
+        "title": "Clients à haute valeur avec achats fréquents et importants",
+        "description": "Ce segment est constitué de clients à haute valeur avec la dépense totale la plus élevée et la fréquence d'achat la plus élevée. Ils achètent de nombreux articles et leur valeur de fret est également la plus élevée. Ces clients sont relativement récents.",
+        "actions": {
+            "Programme VIP": "Mettre en place un programme exclusif avec des avantages premium pour récompenser et retenir ces clients de grande valeur",
             "Service client personnalisé": "Offrir un service dédié pour répondre rapidement à leurs besoins et maintenir leur satisfaction",
             "Accès en avant-première": "Proposer un accès prioritaire aux nouveaux produits ou ventes pour stimuler leur engagement continu",
         },
     },
-    1: {
-        "title": "Clients occasionnels à valeur moyenne",
-        "description": "Ces clients ont une dépense totale modérée, une fréquence d'achat plus basse, et des achats moins récents. Ils achètent moins d'articles mais ont un ratio de paiement fractionné plus élevé.",
-        "actions": {
-            "Campagnes de réactivation": "Envoyer des offres personnalisées basées sur leurs achats passés pour les inciter à revenir",
-            "Options de paiement flexibles": "Mettre en avant les options de paiement échelonné pour encourager des achats plus importants",
-            "Contenu engageant": "Partager du contenu pertinent pour maintenir la connexion avec la marque entre les achats",
-        },
-    },
-    2: {
-        "title": "Clients à valeur élevée avec achats importants mais peu fréquents",
-        "description": "Ces clients ont une dépense totale élevée malgré une fréquence d'achat modérée. Ils effectuent des achats importants et ont une valeur de fret élevée.",
-        "actions": {
-            "Programmes de fidélité axés sur la valeur": "Récompenser la valeur totale des achats plutôt que la fréquence",
-            "Ventes croisées et montées en gamme": "Suggérer des produits complémentaires ou haut de gamme lors de leurs visites",
-            "Événements exclusifs": "Organiser des événements spéciaux pour ces clients à forte valeur pour renforcer leur relation avec la marque",
-        },
-    },
     3: {
-        "title": "Nouveaux clients ou clients à faible engagement",
-        "description": "Ces clients ont la dépense totale la plus faible, une basse fréquence d'achat, et des achats relativement récents. Ils achètent peu d'articles et ont une faible valeur de fret.",
+        "title": "Clients réguliers avec paniers d'achat moyens",
+        "description": "Ces clients ont une dépense totale relativement élevée et achètent régulièrement. Ils achètent un nombre modéré d'articles avec une valeur de fret assez élevée. Leur activité est également récente.",
         "actions": {
-            "Programme d'onboarding": "Mettre en place un parcours d'accueil pour les nouveaux clients afin de les familiariser avec l'offre",
-            "Offres de découverte": "Proposer des offres spéciales sur une gamme de produits pour encourager l'exploration de l'assortiment",
-            "Enquêtes de satisfaction": "Recueillir des feedbacks pour comprendre leurs besoins et améliorer leur expérience",
+            "Offres groupées": "Proposer des offres groupées ou des réductions sur les achats multiples pour encourager ces clients à acheter davantage lors de chaque commande",
+            "Emails de recommandation": "Envoyer des recommandations personnalisées basées sur leurs précédents achats pour augmenter la fréquence d'achat",
+            "Programmes de fidélité": "Mettre en avant les avantages du programme de fidélité pour les inciter à continuer d'acheter régulièrement",
         },
     },
     4: {
-        "title": "Clients à très haute valeur avec achats fréquents et volumineux",
-        "description": "Ces clients ont la dépense totale la plus élevée, la fréquence d'achat la plus élevée, et achètent le plus grand nombre d'articles. Ils ont aussi la valeur de fret la plus élevée.",
+        "title": "Clients récents et peu engagés",
+        "description": "Ce segment comprend des clients avec une dépense totale faible et une fréquence d'achat basse. Ils achètent peu d'articles mais sont assez récents dans leur engagement. Leur valeur de fret est également faible.",
         "actions": {
-            "Service ultra-premium": "Offrir un service de conciergerie dédié pour répondre à tous leurs besoins",
-            "Co-création de produits": "Les impliquer dans le développement de nouveaux produits ou services",
-            "Avantages exclusifs": "Proposer des avantages uniques comme la livraison gratuite à vie ou des remises permanentes pour maintenir leur fidélité",
-        },
-    },
-    5: {
-        "title": "Clients à faible valeur avec achats peu fréquents mais récents",
-        "description": "Ces clients ont la deuxième dépense totale la plus faible, une fréquence d'achat basse, mais des achats relativement récents. Ils ont le ratio de paiement fractionné le plus élevé.",
-        "actions": {
-            "Offres d'encouragement": "Proposer des remises sur le prochain achat pour augmenter la fréquence",
-            "Éducation sur les produits": "Fournir du contenu informatif pour augmenter la valeur perçue et justifier des achats plus importants",
-            "Options de paiement flexibles": "Mettre en avant les facilités de paiement pour réduire les barrières à l'achat",
+            "Offres de bienvenue": "Lancer des campagnes de bienvenue pour ces clients récents avec des offres spéciales pour les inciter à effectuer de nouveaux achats",
+            "Communication proactive": "Maintenir un contact régulier avec des suggestions de produits personnalisés pour les engager davantage",
+            "Récompenses pour achat récurrent": "Proposer des remises ou des avantages supplémentaires pour encourager ces clients à acheter plus fréquemment",
         },
     },
 }
+
