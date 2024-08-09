@@ -41,7 +41,10 @@ def predict_customer_segment(customer: Customer) -> JSONResponse:
         result = model.predict(customer.to_df())[0]
         # Renvoyer le resultat
         return JSONResponse(
-            content={"customer_unique_id": customer.customer_unique_id, "segment": STRATEGIES[result]}
+            content={
+                "customer_unique_id": customer.customer_unique_id,
+                "segment": STRATEGIES[result],
+            }
         )
     except HTTPException as e:
         raise e
@@ -77,7 +80,10 @@ def predict_customer_segment_batch(file: UploadFile = File(...)) -> JSONResponse
             entry = row.drop("customer_unique_id")
             result = model.predict(entry.to_frame().T)[0]
             results.append(
-                {"customer_unique_id": row["customer_unique_id"], "segment": STRATEGIES[result]}
+                {
+                    "customer_unique_id": row["customer_unique_id"],
+                    "segment": STRATEGIES[result],
+                }
             )
         return JSONResponse(content=results)
     except HTTPException as e:
@@ -123,7 +129,9 @@ def retrieve_all_segments() -> JSONResponse:
         for segment in segments:
             temp = data[data["segments"] == segment]
             customer_unique_ids = temp["customer_unique_id"].tolist()
-            results.append({"Segment": STRATEGIES[segment], "Customers": customer_unique_ids})
+            results.append(
+                {"Segment": STRATEGIES[segment], "Customers": customer_unique_ids}
+            )
         return JSONResponse(content=results)
     except HTTPException as e:
         raise e
