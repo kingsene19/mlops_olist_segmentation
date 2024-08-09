@@ -88,7 +88,7 @@ def test_used_columns_found():
     """
     used_columns = [
         "order_id",
-        "customer_id",
+        "customer_unique_id",
         "order_status",
         "order_purchase_timestamp",
         "order_item_id",

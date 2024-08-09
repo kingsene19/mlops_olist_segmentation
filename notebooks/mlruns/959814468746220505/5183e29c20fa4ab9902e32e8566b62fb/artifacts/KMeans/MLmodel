@@ -1,0 +1,34 @@
+artifact_path: KMeans
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.8.19
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.3.2
+mlflow_version: 2.14.1
+model_size_bytes: 378735
+model_uuid: 6703e030010e460b88cfb2f55d764c62
+run_id: 5183e29c20fa4ab9902e32e8566b62fb
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "total_spent", "required": true}, {"type":
+    "long", "name": "frequency", "required": true}, {"type": "double", "name": "avg_installments",
+    "required": true}, {"type": "double", "name": "total_items", "required": true},
+    {"type": "double", "name": "payment_price_ratio", "required": true}, {"type":
+    "long", "name": "recency", "required": true}, {"type": "double", "name": "avg_fractional_payment_ratio",
+    "required": true}, {"type": "double", "name": "total_freight_value", "required":
+    true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int32", "shape": [-1]}}]'
+  params: null
+utc_time_created: '2024-08-09 19:04:12.192869'

@@ -63,85 +63,92 @@ def make_stability_dataset(path: str, period: int) -> pd.DataFrame:
 
             # Feature Engineering
             total_spent = (
-                filtered_data.groupby("customer_id")["price"].sum().reset_index()
+                filtered_data.groupby("customer_unique_id")["price"].sum().reset_index()
             )
-            total_spent.columns = ["customer_id", "total_spent"]
+            total_spent.columns = ["customer_unique_id", "total_spent"]
             frequency = (
-                filtered_data.groupby("customer_id")["order_id"].count().reset_index()
+                filtered_data.groupby("customer_unique_id")["order_id"]
+                .count()
+                .reset_index()
             )
             frequency = frequency.rename({"order_id": "frequency"}, axis=1)
             avg_installments = (
-                filtered_data.groupby("customer_id")["payment_installments"]
+                filtered_data.groupby("customer_unique_id")["payment_installments"]
                 .mean()
                 .reset_index()
             )
-            avg_installments.columns = ["customer_id", "avg_installments"]
+            avg_installments.columns = ["customer_unique_id", "avg_installments"]
             total_items = (
-                filtered_data.groupby("customer_id")["order_item_id"]
+                filtered_data.groupby("customer_unique_id")["order_item_id"]
                 .sum()
                 .reset_index()
             )
-            total_items.columns = ["customer_id", "total_items"]
+            total_items.columns = ["customer_unique_id", "total_items"]
             payment_price_ratio = (
-                filtered_data.groupby("customer_id")["payment_value"].sum()
-                / filtered_data.groupby("customer_id")["price"].sum()
+                filtered_data.groupby("customer_unique_id")["payment_value"].sum()
+                / filtered_data.groupby("customer_unique_id")["price"].sum()
             )
             payment_price_ratio = payment_price_ratio.reset_index()
-            payment_price_ratio.columns = ["customer_id", "payment_price_ratio"]
+            payment_price_ratio.columns = ["customer_unique_id", "payment_price_ratio"]
             last_order = (
-                filtered_data.groupby("customer_id")["order_purchase_timestamp"]
+                filtered_data.groupby("customer_unique_id")["order_purchase_timestamp"]
                 .max()
                 .reset_index()
             )
-            last_order.columns = ["customer_id", "last_order"]
+            last_order.columns = ["customer_unique_id", "last_order"]
             last_order["recency"] = (
                 last_order["last_order"].max() - last_order["last_order"]
             ).dt.days
             avg_fractional_payment_ratio = (
-                filtered_data.groupby("customer_id")["payment_installments"].mean()
-                / filtered_data.groupby("customer_id")["payment_value"].sum()
+                filtered_data.groupby("customer_unique_id")[
+                    "payment_installments"
+                ].mean()
+                / filtered_data.groupby("customer_unique_id")["payment_value"].sum()
             )
             avg_fractional_payment_ratio = avg_fractional_payment_ratio.reset_index()
             avg_fractional_payment_ratio.columns = [
-                "customer_id",
+                "customer_unique_id",
                 "avg_fractional_payment_ratio",
             ]
             total_freight_value = (
-                filtered_data.groupby("customer_id")["freight_value"]
+                filtered_data.groupby("customer_unique_id")["freight_value"]
                 .sum()
                 .reset_index()
             )
-            total_freight_value.columns = ["customer_id", "total_freight_value"]
+            total_freight_value.columns = ["customer_unique_id", "total_freight_value"]
 
             df_features = pd.merge(
                 total_spent,
-                frequency[["customer_id", "frequency"]],
-                on="customer_id",
+                frequency[["customer_unique_id", "frequency"]],
+                on="customer_unique_id",
                 how="left",
             )
             df_features = pd.merge(
-                df_features, avg_installments, on="customer_id", how="left"
+                df_features, avg_installments, on="customer_unique_id", how="left"
             )
             df_features = pd.merge(
-                df_features, total_items, on="customer_id", how="left"
+                df_features, total_items, on="customer_unique_id", how="left"
             )
             df_features = pd.merge(
-                df_features, payment_price_ratio, on="customer_id", how="left"
+                df_features, payment_price_ratio, on="customer_unique_id", how="left"
             )
             df_features = pd.merge(
                 df_features,
-                last_order[["customer_id", "recency"]],
-                on="customer_id",
+                last_order[["customer_unique_id", "recency"]],
+                on="customer_unique_id",
                 how="left",
             )
             df_features = pd.merge(
-                df_features, avg_fractional_payment_ratio, on="customer_id", how="left"
+                df_features,
+                avg_fractional_payment_ratio,
+                on="customer_unique_id",
+                how="left",
             )
             df_features = pd.merge(
-                df_features, total_freight_value, on="customer_id", how="left"
+                df_features, total_freight_value, on="customer_unique_id", how="left"
             )
 
-            df_features.drop("customer_id", axis=1, inplace=True)
+            df_features.drop("customer_unique_id", axis=1, inplace=True)
 
             logger.info(f"Data shape: {df_features.shape}")
 
